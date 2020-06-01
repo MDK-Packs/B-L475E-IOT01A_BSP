@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>STM32L475VGTx</Device>
           <Vendor>STMicroelectronics</Vendor>
-          <PackID>Keil.STM32L4xx_DFP.2.3.1-dev4</PackID>
+          <PackID>Keil.STM32L4xx_DFP.2.4.0-dev0</PackID>
           <PackURL>https://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00018000) IRAM2(0x10000000,0x00008000) IROM(0x08000000,0x00100000) CPUTYPE("Cortex-M4") FPU2 DSP CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -381,22 +381,12 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Source</GroupName>
+          <GroupName>App</GroupName>
           <Files>
             <File>
               <FileName>Blinky.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Blinky.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Documentation</GroupName>
-          <Files>
-            <File>
-              <FileName>Abstract.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Abstract.txt</FilePath>
             </File>
           </Files>
         </Group>
@@ -417,6 +407,26 @@
               <FileName>stm32l4xx_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\RTE\Device\STM32L475VGTx\STCubeGenerated\Src\stm32l4xx_it.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>STM32CubeMX</GroupName>
+          <Files>
+            <File>
+              <FileName>STCubeGenerated.ioc</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\RTE\Device\STM32L475VGTx\STCubeGenerated\STCubeGenerated.ioc</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Documentation</GroupName>
+          <Files>
+            <File>
+              <FileName>Abstract.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Abstract.txt</FilePath>
             </File>
           </Files>
         </Group>
@@ -539,55 +549,55 @@
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="Common" Cvendor="Keil" Cversion="1.11.1" condition="STM32L4 HAL Common">
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="Cortex" Cvendor="Keil" Cversion="1.11.1" condition="STM32L4 HAL">
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="DMA" Cvendor="Keil" Cversion="1.11.1" condition="STM32L4 HAL">
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="GPIO" Cvendor="Keil" Cversion="1.11.1" condition="STM32L4 HAL">
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="I2C" Cvendor="Keil" Cversion="1.11.1" condition="STM32L4 HAL DMA">
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="PWR" Cvendor="Keil" Cversion="1.11.1" condition="STM32L4 HAL">
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="RCC" Cvendor="Keil" Cversion="1.11.1" condition="STM32L4 HAL GPIO">
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="STM32Cube HAL" Csub="UART" Cvendor="Keil" Cversion="1.11.1" condition="STM32L4 HAL DMA">
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.3.1" condition="STM32L4 CMSIS">
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
@@ -621,7 +631,7 @@
       <file attr="config" category="source" condition="STM32L475 ARMCC" name="Drivers\CMSIS\Device\ST\STM32L4xx\Source\Templates\arm\startup_stm32l475xx.s" version="1.3.1">
         <instance index="0">RTE\Device\STM32L475VGTx\startup_stm32l475xx.s</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.3.1" condition="STM32L4 CMSIS"/>
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
@@ -629,7 +639,7 @@
       <file attr="config" category="source" name="Drivers\CMSIS\Device\ST\STM32L4xx\Source\Templates\system_stm32l4xx.c" version="1.3.1">
         <instance index="0">RTE\Device\STM32L475VGTx\system_stm32l4xx.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.3.1" condition="STM32L4 CMSIS"/>
-        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.3.1-dev4"/>
+        <package name="STM32L4xx_DFP" schemaVersion="1.6.0" url="https://www.keil.com/pack/" vendor="Keil" version="2.4.0-dev0"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>

@@ -22,7 +22,7 @@
 
 #include "main.h"
 
-#include "cmsis_os2.h"                  // ::CMSIS:RTOS2
+#include "cmsis_os2.h"
 
 /*---------------------------------------------------------------------------
  * Application main thread
@@ -31,5 +31,5 @@ __NO_RETURN void app_main (void *arg) {
   (void)arg;
 
   // Add user code here:
-  for (;;);
+  for (;;) {}
 }

@@ -21,6 +21,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
+#ifdef    RTE_VIO_BOARD
+#include "cmsis_vio.h"
+#endif
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -67,15 +71,14 @@ static void MX_UART4_Init(void);
 /**
   * Override default HAL_GetTick function
   */
-  
 volatile uint32_t DEBUG_Tick = 0;
 uint32_t HAL_GetTick (void) {
   static uint32_t ticks = 0U;
          uint32_t i;
 
   if (osKernelGetState () == osKernelRunning) {
-    DEBUG_Tick = osKernelGetTickCount ();
-    return ((uint32_t)osKernelGetTickCount ());
+    DEBUG_Tick = osKernelGetTickCount();
+    return ((uint32_t)osKernelGetTickCount());
   }
 
   /* If Kernel is not running wait approximately 1 ms then increment 
@@ -86,7 +89,6 @@ uint32_t HAL_GetTick (void) {
   }
   return ++ticks;
 }
-
 /* USER CODE END 0 */
 
 /**
@@ -122,17 +124,17 @@ int main(void)
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
 #ifdef RTE_VIO_BOARD
-  vioInit ();
+  vioInit();
 #endif
 
   /* Initialize CMSIS-RTOS2 */
-  osKernelInitialize ();
+  osKernelInitialize();
 
   /* Create application main thread */
-  osThreadNew (app_main, NULL, NULL);
+  osThreadNew(app_main, NULL, NULL);
 
   /* Start thread execution */
-  osKernelStart ();
+  osKernelStart();
 
   /* USER CODE END 2 */
 

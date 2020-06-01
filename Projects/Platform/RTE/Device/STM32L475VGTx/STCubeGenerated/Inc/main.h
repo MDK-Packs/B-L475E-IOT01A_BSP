@@ -32,11 +32,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "cmsis_os2.h"                  // ::CMSIS:RTOS2
-#include "RTE_Components.h"             // Component selection
-#ifdef RTE_VIO_BOARD
-#include "cmsis_vio.h"                  // ::CMSIS Driver:VIO
-#endif
+#include "cmsis_os2.h"
+#include "RTE_Components.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

@@ -34,7 +34,11 @@
 #include  RTE_RTX_CONFIG_H
 #endif
 #endif
- 
+
+#ifndef RTE_Compiler_EventRecorder
+#define OS_EVR_INIT                 0
+#endif
+
 //-------- <<< Use Configuration Wizard in Context Menu >>> --------------------
  
 // <h>System Configuration
@@ -360,7 +364,7 @@
 //       <o.3>Detailed operation events
 //     </h>
 #ifndef OS_EVR_LEVEL
-#define OS_EVR_LEVEL                0x00U
+#define OS_EVR_LEVEL                0x05U
 #endif
  
 //     <h>RTOS Event Filter Setup
