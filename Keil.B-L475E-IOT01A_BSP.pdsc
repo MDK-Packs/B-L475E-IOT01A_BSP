@@ -12,6 +12,14 @@
     </release>
   </releases>
 
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>ST</keyword>
+    <keyword>Board Support Pack</keyword>
+    <keyword>STM32L4</keyword>
+    <keyword>B-L475E-IOT01A</keyword>
+  </keywords>
+
   <requirements>
     <packages>
       <package vendor="Keil" name="STM32L4xx_DFP" version="2.4.0-0"/>
@@ -242,5 +250,4 @@
       </attributes>
     </example>
   </examples>
-
 </package>
