@@ -66,7 +66,6 @@ PACK_DIRS=${PACK_DIRS//$PACK_WAREHOUSE/}
   
 # Specify file names to be added to pack base directory
 PACK_BASE_FILES="
-  LICENSE
 "
 
 ############ DO NOT EDIT BELOW ###########
@@ -174,7 +173,7 @@ else
 fi
 
 # Run Pack Check and generate PackName file with version
-"${PACKCHK}" "${PACK_BUILD}/${PACK_VENDOR}.${PACK_NAME}.pdsc" -i ${CMSIS_PACK_ROOT}/.Web/Keil.STM32L4xx_DFP.pdsc -i "${CMSIS_PACK_ROOT}/.Web/ARM.CMSIS.pdsc" -n PackName.txt
+"${PACKCHK}" "${PACK_BUILD}/${PACK_VENDOR}.${PACK_NAME}.pdsc" -i "${CMSIS_PACK_ROOT}/.Web/Keil.STM32L4xx_DFP.pdsc" -i "${CMSIS_PACK_ROOT}/.Web/ARM.CMSIS.pdsc" -n PackName.txt
 errorlevel=$?
 if [ $errorlevel -ne 0 ]; then
   echo "build aborted: pack check failed"
