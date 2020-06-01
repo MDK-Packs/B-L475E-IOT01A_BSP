@@ -61,7 +61,7 @@ __NO_RETURN static void thrLED (void *arg) {
 /*---------------------------------------------------------------------------
   thrButton: check Button state
  *---------------------------------------------------------------------------*/
-__NO_RETURN static void thrButton(void *arg) {
+__NO_RETURN static void thrButton (void *arg) {
   uint32_t last = 0U;
   uint32_t state;
 
