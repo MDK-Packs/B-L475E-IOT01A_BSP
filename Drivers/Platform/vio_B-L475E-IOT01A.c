@@ -1,6 +1,6 @@
 /******************************************************************************
  * @file     vio_B-L475E-IOT01A.c
- * @brief    Virtual I/O implemenation for board B-L475E-IOT01A
+ * @brief    Virtual I/O implementation for board B-L475E-IOT01A
  * @version  V1.0.0
  * @date     25. March 2020
  ******************************************************************************/
@@ -42,11 +42,10 @@ vioAIN3           | vioValue[2]    | ST MEMS humidity and temperature (HTS221)  
 #include <stdarg.h>
 #include "cmsis_vio.h"
 
-#include "RTE_Components.h"             // Component selection
+#include "RTE_Components.h"
 #include CMSIS_device_header
 
 #if !defined CMSIS_VOUT || !defined CMSIS_VIN
-// Add user includes here:
 #include "stm32l475e_iot01.h"
 #include "stm32l475e_iot01_tsensor.h"
 #include "stm32l475e_iot01_psensor.h"
@@ -54,8 +53,6 @@ vioAIN3           | vioValue[2]    | ST MEMS humidity and temperature (HTS221)  
 #include "stm32l475e_iot01_magneto.h"
 #include "stm32l475e_iot01_accelero.h"
 #include "stm32l475e_iot01_gyro.h"
-
-#include "cmsis_os2.h"                  // ::CMSIS:RTOS2
 #endif
 
 // VIO input, output definitions
@@ -76,7 +73,7 @@ __USED vioAddrIPv4_t vioAddrIPv4[VIO_IPV4_ADDRESS_NUM];                 // Memor
 __USED vioAddrIPv6_t vioAddrIPv6[VIO_IPV6_ADDRESS_NUM];                 // Memory for IPv6 address value used in vioSetIPv6/vioGetIPv6
 
 #if !defined CMSIS_VOUT
-// Add global user types, variables, functions here:
+// Global types, variables, functions
 static char         ip_ascii[40];       // string buffer for IP address conversion
 
 /**
@@ -90,7 +87,7 @@ static void ip4_2a (const uint8_t *ip4_addr, char *buf, uint32_t buf_len) {
   if (buf_len < 16U) {
     return;
   }
-  sprintf (buf, "%d.%d.%d.%d", ip4_addr[0], ip4_addr[1], ip4_addr[2], ip4_addr[3]);
+  sprintf(buf, "%d.%d.%d.%d", ip4_addr[0], ip4_addr[1], ip4_addr[2], ip4_addr[3]);
 }
 
 /**
@@ -136,7 +133,7 @@ static void ip6_2a (const uint8_t *ip6_addr, char *buf, uint32_t buf_len) {
     i = j;
   }
   for (i = j = 0; i < idx;  ) {
-    j += sprintf (&buf[j], "%x", v16[i]);
+    j += sprintf(&buf[j], "%x", v16[i]);
     if (++i == idx) {
       break;
     }
@@ -146,7 +143,7 @@ static void ip6_2a (const uint8_t *ip6_addr, char *buf, uint32_t buf_len) {
     /* Right-end not yet complete */
     buf[j++] = ':';
     for (i += nmax; i < 8; i++) {
-      j += sprintf (&buf[j], ":%x", v16[i]);
+      j += sprintf(&buf[j], ":%x", v16[i]);
     }
     if (buf[j-1] == ':') {
       buf[j++] = ':';
@@ -177,19 +174,19 @@ void vioInit (void) {
   vioSignalIn  = 0U;
   vioSignalOut = 0U;
 
-  memset (vioPrintMem, 0, sizeof(vioPrintMem));
-  memset (vioValue,    0, sizeof(vioValue));
-  memset (vioValueXYZ, 0, sizeof(vioValueXYZ));
-  memset (vioAddrIPv4, 0, sizeof(vioAddrIPv4));
-  memset (vioAddrIPv6, 0, sizeof(vioAddrIPv6));
+  memset(vioPrintMem, 0, sizeof(vioPrintMem));
+  memset(vioValue,    0, sizeof(vioValue));
+  memset(vioValueXYZ, 0, sizeof(vioValueXYZ));
+  memset(vioAddrIPv4, 0, sizeof(vioAddrIPv4));
+  memset(vioAddrIPv6, 0, sizeof(vioAddrIPv6));
 
 #if !defined CMSIS_VOUT
-// Add user code here:
+  // Initialize LEDs pins
   BSP_LED_Init(LED_GREEN);
 #endif
 
 #if !defined CMSIS_VIN
-// Add user code here:
+  // Initialize buttons pins (only USER button), MEMS pins
   BSP_PB_Init(BUTTON_USER, BUTTON_MODE_GPIO);
 
   BSP_GYRO_Init();
@@ -242,7 +239,7 @@ void vioSetSignal (uint32_t mask, uint32_t signal) {
   vioSignalOut |=  mask & signal;
 
 #if !defined CMSIS_VOUT
-// Add user code here:
+  // Output signals to LEDs
 
   if (mask & vioLED1) {
     if (signal & vioLED1) {
@@ -263,7 +260,7 @@ uint32_t vioGetSignal (uint32_t mask) {
 #endif
 
 #if !defined CMSIS_VIN
-// Add user code here:
+  // Get input signals from buttons (only USER button)
   if (mask & vioBUTTON0) {
     if (BSP_PB_GetState(BUTTON_USER) == 1U) {
       vioSignalIn |=  vioBUTTON0;
@@ -312,7 +309,7 @@ int32_t vioGetValue (uint32_t id) {
   }
 
 #if !defined CMSIS_VIN
-// Add user code here:
+  // Get input values from MEMS
   if (id == vioAIN0) {
     vioValue[index] = (uint32_t) BSP_TSENSOR_ReadTemp();
   }
@@ -356,7 +353,7 @@ vioValueXYZ_t vioGetXYZ (uint32_t id) {
   uint32_t index = id;
   vioValueXYZ_t valueXYZ = {0, 0, 0};
 #if !defined CMSIS_VIN
-// Add user variables here:
+  // MEMS variables
   float pGyroDataXYZ[3] = {0};
   int16_t pDataXYZ[3] = {0};
 #endif
@@ -366,7 +363,7 @@ vioValueXYZ_t vioGetXYZ (uint32_t id) {
   }
 
 #if !defined CMSIS_VIN
-// Add user code here:
+  // Get input xyz values from MEMS
   if (id == vioMotionGyro) {
     BSP_GYRO_GetXYZ(pGyroDataXYZ);
     vioValueXYZ[index].X = (uint32_t) pGyroDataXYZ[0];
@@ -402,7 +399,7 @@ void vioSetIPv4 (uint32_t id, vioAddrIPv4_t addrIPv4) {
   vioAddrIPv4[index] = addrIPv4;
 
 #if !defined CMSIS_VOUT
-// Add user code here:
+  // Convert IP4 address to ASCII
   ip4_2a((uint8_t *)&vioAddrIPv4[index], ip_ascii, sizeof(ip_ascii));
 #endif
 }
@@ -446,7 +443,7 @@ void vioSetIPv6 (uint32_t id, vioAddrIPv6_t addrIPv6) {
   vioAddrIPv6[index] = addrIPv6;
 
 #if !defined CMSIS_VOUT
-// Add user code here:
+  // Convert IP6 address to ASCII
   ip6_2a((uint8_t *)&vioAddrIPv6[index], ip_ascii, sizeof(ip_ascii));
 #endif
 }
