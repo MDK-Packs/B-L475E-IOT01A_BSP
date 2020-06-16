@@ -728,11 +728,6 @@
     </Layers>
     <LayAssign>
       <LayAsnItem>
-        <LayAsnType>3</LayAsnType>
-        <LayAsnName>Source</LayAsnName>
-        <LayAsnLayerName>App</LayAsnLayerName>
-      </LayAsnItem>
-      <LayAsnItem>
         <LayAsnType>2</LayAsnType>
         <LayAsnName>.\Platform.c</LayAsnName>
         <LayAsnLayerName>App</LayAsnLayerName>

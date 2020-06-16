@@ -3,8 +3,8 @@ Compliant to Cortex Microcontroller Software Interface Standard (CMSIS).
 
 Example functionality:
 
- - Virtual LEDs vioLED0, vioLED1 are blinking as running light with fixed speed 100 ms
- - Virtual Button vioBUTTON0 is used for stop/start blinking Virtual LED vioLED1
+ - Virtual LED vioLED0 is blinking with a predefined period
+ - Virtual Button vioBUTTON0 is used to switch Virtual LED blinking period
 
  - Target options:
    - Compiler:                  ARM Compiler optimization Level 1
@@ -13,5 +13,5 @@ Example functionality:
 
  - Hardware Mapping:
             Virtual I/O      Board
-   LED      vioLED1          LD2
+   LED      vioLED0          LD2
    Button   vioBUTTON0       B2

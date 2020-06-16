@@ -21,13 +21,13 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "cmsis_os2.h"
+#include "RTE_Components.h"
 #ifdef    RTE_VIO_BOARD
 #include "cmsis_vio.h"
 #endif
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,13 +71,11 @@ static void MX_UART4_Init(void);
 /**
   * Override default HAL_GetTick function
   */
-volatile uint32_t DEBUG_Tick = 0;
 uint32_t HAL_GetTick (void) {
   static uint32_t ticks = 0U;
          uint32_t i;
 
   if (osKernelGetState () == osKernelRunning) {
-    DEBUG_Tick = osKernelGetTickCount();
     return ((uint32_t)osKernelGetTickCount());
   }
 

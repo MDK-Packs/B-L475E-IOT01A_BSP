@@ -7,6 +7,13 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.0-dev1">
+      Drivers:
+      - Update VIO module
+      Projects:
+      - Update examples:
+      -- Move includes (cmsis_os2.h, RTE_Components.h)
+    </release>
     <release version="1.0.0-dev0">
       Initial development release.
     </release>

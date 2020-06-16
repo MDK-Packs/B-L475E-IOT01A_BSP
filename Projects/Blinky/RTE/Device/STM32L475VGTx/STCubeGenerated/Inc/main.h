@@ -32,8 +32,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "cmsis_os2.h"
-#include "RTE_Components.h"
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -61,9 +60,6 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
 extern void app_main (void *arg);
-
-extern uint64_t app_main_stk[];
-extern const osThreadAttr_t app_main_attr;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
