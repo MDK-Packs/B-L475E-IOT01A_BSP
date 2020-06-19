@@ -7,6 +7,9 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.0-dev2">
+      Minor fixes.
+    </release>
     <release version="1.0.0-dev1">
       Drivers:
       - Update VIO module
