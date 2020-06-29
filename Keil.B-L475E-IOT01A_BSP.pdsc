@@ -7,6 +7,9 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.0-dev4">
+      Update Platform example Abstract.
+    </release>
     <release version="1.0.0-dev3">
       Update Blinky example Abstract.
     </release>
@@ -248,7 +251,7 @@
       </attributes>
     </example>
 
-    <example name="Platform" doc="Abstract.txt" folder="Projects/Platform">
+    <example name="Platform" doc="Abstract.md" folder="Projects/Platform">
       <description>CMSIS-RTOS2 Platform example with VIO</description>
       <board name="B-L475E-IOT01A" vendor="STMicroelectronics"/>
       <project>
