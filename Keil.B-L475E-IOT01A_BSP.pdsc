@@ -7,27 +7,8 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
-    <release version="1.0.0-dev5">
-      Update to sync with CB_Lab4Layer.
-    </release>
-    <release version="1.0.0-dev4">
-      Update Platform example Abstract.
-    </release>
-    <release version="1.0.0-dev3">
-      Update Blinky example Abstract.
-    </release>
-    <release version="1.0.0-dev2">
-      Minor fixes.
-    </release>
-    <release version="1.0.0-dev1">
-      Drivers:
-      - Update VIO module
-      Projects:
-      - Update examples:
-      -- Move includes (cmsis_os2.h, RTE_Components.h)
-    </release>
-    <release version="1.0.0-dev0">
-      Initial development release.
+    <release version="1.0.0" date="2020-07-03">
+      Initial public release
     </release>
   </releases>
 
