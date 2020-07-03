@@ -28,6 +28,12 @@
 #ifdef    RTE_VIO_BOARD
 #include "cmsis_vio.h"
 #endif
+#if defined(RTE_Compiler_EventRecorder)
+#include "EventRecorder.h"
+#endif
+
+extern void WiFi_ISM43362_Pin_DATARDY_IRQ (void);
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,6 +43,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -45,11 +52,17 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+RNG_HandleTypeDef hrng;
+
 SPI_HandleTypeDef hspi1;
+SPI_HandleTypeDef hspi3;
 DMA_HandleTypeDef hdma_spi1_rx;
 DMA_HandleTypeDef hdma_spi1_tx;
+DMA_HandleTypeDef hdma_spi3_rx;
+DMA_HandleTypeDef hdma_spi3_tx;
 
 UART_HandleTypeDef huart4;
+UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 
@@ -61,6 +74,9 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_UART4_Init(void);
+static void MX_RNG_Init(void);
+static void MX_SPI3_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -87,6 +103,19 @@ uint32_t HAL_GetTick (void) {
   }
   return ++ticks;
 }
+
+/**
+  * @brief  EXTI line detection callback.
+  * @param  GPIO_Pin: Specifies the port pin connected to corresponding EXTI line.
+  * @retval None
+  */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+  if (GPIO_Pin == GPIO_PIN_1) {
+    WiFi_ISM43362_Pin_DATARDY_IRQ();
+  }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -112,7 +141,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  SystemCoreClockUpdate();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -120,19 +149,23 @@ int main(void)
   MX_DMA_Init();
   MX_SPI1_Init();
   MX_UART4_Init();
+  MX_RNG_Init();
+  MX_SPI3_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 #ifdef RTE_VIO_BOARD
   vioInit();
 #endif
 
-  /* Initialize CMSIS-RTOS2 */
-  osKernelInitialize();
+#if defined(RTE_Compiler_EventRecorder) && \
+    (defined(__MICROLIB) || \
+    !(defined(RTE_CMSIS_RTOS2_RTX5) || defined(RTE_CMSIS_RTOS2_FreeRTOS)))
+  EventRecorderInitialize(EventRecordAll, 1U);
+#endif
 
-  /* Create application main thread */
-  osThreadNew(app_main, NULL, NULL);
-
-  /* Start thread execution */
-  osKernelStart();
+  osKernelInitialize();                         /* Initialize CMSIS-RTOS2 */
+  app_initialize();                             /* Initialize application */
+  osKernelStart();                              /* Start thread execution */
 
   /* USER CODE END 2 */
 
@@ -140,9 +173,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
   }
   /* USER CODE END 3 */
 }
@@ -192,8 +227,18 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_UART4;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_UART4
+                              |RCC_PERIPHCLK_RNG;
+  PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
   PeriphClkInit.Uart4ClockSelection = RCC_UART4CLKSOURCE_PCLK1;
+  PeriphClkInit.RngClockSelection = RCC_RNGCLKSOURCE_PLLSAI1;
+  PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_MSI;
+  PeriphClkInit.PLLSAI1.PLLSAI1M = 1;
+  PeriphClkInit.PLLSAI1.PLLSAI1N = 24;
+  PeriphClkInit.PLLSAI1.PLLSAI1P = RCC_PLLP_DIV7;
+  PeriphClkInit.PLLSAI1.PLLSAI1Q = RCC_PLLQ_DIV2;
+  PeriphClkInit.PLLSAI1.PLLSAI1R = RCC_PLLR_DIV2;
+  PeriphClkInit.PLLSAI1.PLLSAI1ClockOut = RCC_PLLSAI1_48M2CLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
@@ -207,6 +252,32 @@ void SystemClock_Config(void)
   /** Enable MSI Auto calibration 
   */
   HAL_RCCEx_EnableMSIPLLMode();
+}
+
+/**
+  * @brief RNG Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_RNG_Init(void)
+{
+
+  /* USER CODE BEGIN RNG_Init 0 */
+
+  /* USER CODE END RNG_Init 0 */
+
+  /* USER CODE BEGIN RNG_Init 1 */
+
+  /* USER CODE END RNG_Init 1 */
+  hrng.Instance = RNG;
+  if (HAL_RNG_Init(&hrng) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN RNG_Init 2 */
+
+  /* USER CODE END RNG_Init 2 */
+
 }
 
 /**
@@ -250,6 +321,46 @@ static void MX_SPI1_Init(void)
 }
 
 /**
+  * @brief SPI3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI3_Init(void)
+{
+
+  /* USER CODE BEGIN SPI3_Init 0 */
+
+  /* USER CODE END SPI3_Init 0 */
+
+  /* USER CODE BEGIN SPI3_Init 1 */
+
+  /* USER CODE END SPI3_Init 1 */
+  /* SPI3 parameter configuration*/
+  hspi3.Instance = SPI3;
+  hspi3.Init.Mode = SPI_MODE_MASTER;
+  hspi3.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi3.Init.DataSize = SPI_DATASIZE_4BIT;
+  hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi3.Init.NSS = SPI_NSS_SOFT;
+  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi3.Init.CRCPolynomial = 7;
+  hspi3.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  hspi3.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  if (HAL_SPI_Init(&hspi3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI3_Init 2 */
+
+  /* USER CODE END SPI3_Init 2 */
+
+}
+
+/**
   * @brief UART4 Initialization Function
   * @param None
   * @retval None
@@ -284,6 +395,41 @@ static void MX_UART4_Init(void)
 
 }
 
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+
 /** 
   * Enable DMA controller clock
   */
@@ -292,14 +438,21 @@ static void MX_DMA_Init(void)
 
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
+  __HAL_RCC_DMA2_CLK_ENABLE();
 
   /* DMA interrupt init */
   /* DMA1_Channel2_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 7, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
   /* DMA1_Channel3_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 7, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
+  /* DMA2_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Channel1_IRQn, 7, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Channel1_IRQn);
+  /* DMA2_Channel2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Channel2_IRQn, 7, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Channel2_IRQn);
 
 }
 
@@ -315,16 +468,61 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(IO_D10_GPIO_Port, IO_D10_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : SPI1_NSS_Pin */
-  GPIO_InitStruct.Pin = SPI1_NSS_Pin;
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOE, ISM43362_RESET_Pin|ISM43362_SPI3_NSS_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(ISM43362_WAKEUP_GPIO_Port, ISM43362_WAKEUP_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : IO_D10_Pin */
+  GPIO_InitStruct.Pin = IO_D10_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  HAL_GPIO_Init(SPI1_NSS_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(IO_D10_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ISM43362_RESET_Pin */
+  GPIO_InitStruct.Pin = ISM43362_RESET_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(ISM43362_RESET_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ISM43362_WAKEUP_Pin */
+  GPIO_InitStruct.Pin = ISM43362_WAKEUP_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(ISM43362_WAKEUP_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : IO_D9_Pin */
+  GPIO_InitStruct.Pin = IO_D9_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(IO_D9_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ISM43362_SPI3_NSS_Pin */
+  GPIO_InitStruct.Pin = ISM43362_SPI3_NSS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(ISM43362_SPI3_NSS_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : ISM43362_DATARDY_Pin */
+  GPIO_InitStruct.Pin = ISM43362_DATARDY_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(ISM43362_DATARDY_GPIO_Port, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 15, 0);
+  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 
 }
 
@@ -340,7 +538,9 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+  while (1)
+  {
+  }
   /* USER CODE END Error_Handler_Debug */
 }
 

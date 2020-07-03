@@ -54,12 +54,12 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+extern void app_initialize (void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-extern void app_main (void *arg);
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

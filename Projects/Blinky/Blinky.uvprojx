@@ -211,7 +211,7 @@
             <Ra2Chk>0</Ra2Chk>
             <Ra3Chk>0</Ra3Chk>
             <Im1Chk>1</Im1Chk>
-            <Im2Chk>0</Im2Chk>
+            <Im2Chk>1</Im2Chk>
             <OnChipMemories>
               <Ocm1>
                 <Type>0</Type>
@@ -424,9 +424,9 @@
           <GroupName>Documentation</GroupName>
           <Files>
             <File>
-              <FileName>Abstract.md</FileName>
+              <FileName>README.md</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Abstract.md</FilePath>
+              <FilePath>.\README.md</FilePath>
             </File>
           </Files>
         </Group>
@@ -501,49 +501,49 @@
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Accelerometer" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Accelerometer">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev2"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Basic I/O" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev2"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Gyroscope" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Gyroscope">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev2"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Humidity Sensor" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Humidity Sensor">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev2"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Magnetometer" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Magnetometer">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev2"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Pressure Sensor" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Pressure Sensor">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev2"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Temperature Sensor" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Temperature Sensor">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev2"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Capiversion="0.1.0" Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="B-L475E-IOT01A" Cvendor="Keil" Cversion="1.0.0" condition="B-L475E-IOT01A VIO">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev2"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>

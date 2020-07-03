@@ -7,6 +7,9 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.0-dev5">
+      Update to sync with CB_Lab4Layer.
+    </release>
     <release version="1.0.0-dev4">
       Update Platform example Abstract.
     </release>
@@ -236,7 +239,7 @@
   </boards>
 
   <examples>
-    <example name="Blinky" doc="Abstract.md" folder="Projects/Blinky">
+    <example name="Blinky" doc="README.md" folder="Projects/Blinky">
       <description>CMSIS-RTOS2 Blinky example with VIO</description>
       <board name="B-L475E-IOT01A" vendor="STMicroelectronics"/>
       <project>
@@ -251,7 +254,7 @@
       </attributes>
     </example>
 
-    <example name="Platform" doc="Abstract.md" folder="Projects/Platform">
+    <example name="Platform" doc="README.md" folder="Projects/Platform">
       <description>CMSIS-RTOS2 Platform example with VIO</description>
       <board name="B-L475E-IOT01A" vendor="STMicroelectronics"/>
       <project>

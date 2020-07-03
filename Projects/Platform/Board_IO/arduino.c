@@ -15,32 +15,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- *      Name:    Platform.c
- *      Purpose: Platform template
+ *      Name:    arduino.c
+ *      Purpose: Arduino module
  *
  *---------------------------------------------------------------------------*/
 
+#include "arduino.h"
 #include "main.h"
 
-#include "cmsis_os2.h"
-
-static const osThreadAttr_t app_main_attr = {
-  .stack_size = 4096U
-};
-
-/*---------------------------------------------------------------------------
- * Application main thread
- *---------------------------------------------------------------------------*/
-static void app_main (void *argument) {
-  (void)argument;
-
-  // Add user code here:
-  for (;;) {}
+/**
+  \fn          void ARDUINO_IO_D10_Set (uint32_t val)
+  \brief       Set IO D10 digital output.
+  \param[in]   val output value
+                 - 0
+                 - 1
+  \return      none
+*/
+void ARDUINO_IO_D10_Set (uint32_t val) {
+  HAL_GPIO_WritePin(IO_D10_GPIO_Port, IO_D10_Pin, val ? GPIO_PIN_RESET : GPIO_PIN_SET);
 }
 
-/*---------------------------------------------------------------------------
- * Application initialization
- *---------------------------------------------------------------------------*/
-void app_initialize (void) {
-  osThreadNew(app_main, NULL, &app_main_attr);
+/**
+  \fn          uint32_t ARDUINO_IO_D9_Get (void)
+  \brief       Get IO D9 digital input.
+  \return      input state
+                 - 0
+                 - 1
+*/
+uint32_t ARDUINO_IO_D9_Get (void) {
+  if (HAL_GPIO_ReadPin(IO_D9_GPIO_Port, IO_D9_Pin) == GPIO_PIN_SET) {
+    return 1U;
+  } else {
+    return 0U;
+  }
 }

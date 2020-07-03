@@ -1,7 +1,7 @@
 Blinky project
 ==============
 
-The 'Blinky' project is a simple example that can be used to verify the
+The **Blinky** project is a simple example that can be used to verify the
 basic tool setup.
 
 It is compliant to the Cortex Microcontroller Software Interface Standard (CMSIS)

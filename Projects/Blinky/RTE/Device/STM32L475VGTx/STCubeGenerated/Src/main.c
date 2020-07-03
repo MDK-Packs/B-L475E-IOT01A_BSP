@@ -28,6 +28,9 @@
 #ifdef    RTE_VIO_BOARD
 #include "cmsis_vio.h"
 #endif
+#if defined(RTE_Compiler_EventRecorder)
+#include "EventRecorder.h"
+#endif
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,6 +40,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -104,7 +108,7 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  SystemCoreClockUpdate();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -114,14 +118,15 @@ int main(void)
   vioInit();
 #endif
 
-  /* Initialize CMSIS-RTOS2 */
-  osKernelInitialize();
+#if defined(RTE_Compiler_EventRecorder) && \
+    (defined(__MICROLIB) || \
+    !(defined(RTE_CMSIS_RTOS2_RTX5) || defined(RTE_CMSIS_RTOS2_FreeRTOS)))
+  EventRecorderInitialize(EventRecordAll, 1U);
+#endif
 
-  /* Create application main thread */
-  osThreadNew(app_main, NULL, NULL);
-
-  /* Start thread execution */
-  osKernelStart();
+  osKernelInitialize();                         /* Initialize CMSIS-RTOS2 */
+  app_initialize();                             /* Initialize application */
+  osKernelStart();                              /* Start thread execution */
 
   /* USER CODE END 2 */
 
@@ -129,9 +134,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
   }
   /* USER CODE END 3 */
 }
@@ -216,7 +223,9 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+  while (1)
+  {
+  }
   /* USER CODE END Error_Handler_Debug */
 }
 

@@ -54,14 +54,25 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+extern void app_initialize (void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define SPI1_NSS_Pin GPIO_PIN_2
-#define SPI1_NSS_GPIO_Port GPIOA
+#define IO_D10_Pin GPIO_PIN_2
+#define IO_D10_GPIO_Port GPIOA
+#define ISM43362_RESET_Pin GPIO_PIN_8
+#define ISM43362_RESET_GPIO_Port GPIOE
+#define ISM43362_WAKEUP_Pin GPIO_PIN_13
+#define ISM43362_WAKEUP_GPIO_Port GPIOB
+#define IO_D9_Pin GPIO_PIN_15
+#define IO_D9_GPIO_Port GPIOA
+#define ISM43362_SPI3_NSS_Pin GPIO_PIN_0
+#define ISM43362_SPI3_NSS_GPIO_Port GPIOE
+#define ISM43362_DATARDY_Pin GPIO_PIN_1
+#define ISM43362_DATARDY_GPIO_Port GPIOE
+#define ISM43362_DATARDY_EXTI_IRQn EXTI1_IRQn
 /* USER CODE BEGIN Private defines */
-extern void app_main (void *arg);
+extern RNG_HandleTypeDef hrng;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
