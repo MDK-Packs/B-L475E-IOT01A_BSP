@@ -7,6 +7,9 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.1-dev1">
+      Update Platform example
+    </release>
     <release version="1.0.1-dev0">
       Minor update (README.md)
     </release>

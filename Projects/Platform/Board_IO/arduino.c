@@ -32,7 +32,7 @@
   \return      none
 */
 void ARDUINO_IO_D10_Set (uint32_t val) {
-  HAL_GPIO_WritePin(IO_D10_GPIO_Port, IO_D10_Pin, val ? GPIO_PIN_RESET : GPIO_PIN_SET);
+  HAL_GPIO_WritePin(IO_D10_GPIO_Port, IO_D10_Pin, val ? GPIO_PIN_SET : GPIO_PIN_RESET);
 }
 
 /**
