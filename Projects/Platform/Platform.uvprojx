@@ -557,43 +557,43 @@
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Accelerometer" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Accelerometer">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev5"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Basic I/O" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev5"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Gyroscope" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Gyroscope">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev5"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Humidity Sensor" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Humidity Sensor">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev5"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Magnetometer" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Magnetometer">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev5"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Pressure Sensor" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Pressure Sensor">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev5"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
       </component>
       <component Cbundle="B-L475E-IOT01A" Cclass="Board Support" Cgroup="Drivers" Csub="Temperature Sensor" Cvendor="Keil" Cversion="1.1.6" condition="B-L475E-IOT01A BSP Temperature Sensor">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev5"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
@@ -611,7 +611,7 @@
         </targetInfos>
       </component>
       <component Capiversion="0.1.0" Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant="B-L475E-IOT01A" Cvendor="Keil" Cversion="1.0.0" condition="B-L475E-IOT01A VIO">
-        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev3"/>
+        <package name="B-L475E-IOT01A_BSP" schemaVersion="1.6.0" url="https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/" vendor="Keil" version="1.0.0-dev5"/>
         <targetInfos>
           <targetInfo name="B-L475E-IOT01A"/>
         </targetInfos>
@@ -980,7 +980,7 @@
       </LayAsnItem>
       <LayAsnItem>
         <LayAsnType>1</LayAsnType>
-        <LayAsnName>Keil.ARM Compiler::Compiler:I/O:STDOUT</LayAsnName>
+        <LayAsnName>Keil.#Bundle#::Compiler:I/O:STDOUT</LayAsnName>
         <LayAsnLayerName>Board</LayAsnLayerName>
       </LayAsnItem>
       <LayAsnItem>
@@ -1016,6 +1016,16 @@
       <LayAsnItem>
         <LayAsnType>1</LayAsnType>
         <LayAsnName>Keil::Device:STM32Cube HAL:RNG</LayAsnName>
+        <LayAsnLayerName>Board</LayAsnLayerName>
+      </LayAsnItem>
+      <LayAsnItem>
+        <LayAsnType>1</LayAsnType>
+        <LayAsnName>Keil.#Bundle#::Compiler:I/O:STDERR</LayAsnName>
+        <LayAsnLayerName>Board</LayAsnLayerName>
+      </LayAsnItem>
+      <LayAsnItem>
+        <LayAsnType>1</LayAsnType>
+        <LayAsnName>Keil.#Bundle#::Compiler:I/O:STDIN</LayAsnName>
         <LayAsnLayerName>Board</LayAsnLayerName>
       </LayAsnItem>
     </LayAssign>

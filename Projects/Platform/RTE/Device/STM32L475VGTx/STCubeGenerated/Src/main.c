@@ -147,10 +147,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_SPI1_Init();
-  MX_UART4_Init();
   MX_RNG_Init();
-  MX_SPI3_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 #ifdef RTE_VIO_BOARD
@@ -472,7 +469,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(IO_D10_GPIO_Port, IO_D10_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(IO_D10_GPIO_Port, IO_D10_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOE, ISM43362_RESET_Pin|ISM43362_SPI3_NSS_Pin, GPIO_PIN_RESET);
