@@ -51,7 +51,7 @@ The Board layer contains the following configured interface drivers:
  - vioAIN1:           ST MEMS barometer (LPS22HB)
  - vioAIN3:           ST MEMS humidity and temperature (HTS221)
 
-**STDOUT** routed to Virtual COM port (ST-LINK, baudrate = 115200)
+**STDIO** routed to Virtual COM port (ST-LINK, baudrate = 115200)
 
 The board configuration can be modified using 
 [STM32CubeMX](https://www.keil.com/stmicroelectronics-stm32) 
