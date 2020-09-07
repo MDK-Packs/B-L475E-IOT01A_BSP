@@ -34,7 +34,7 @@ vioMotionGyro     | vioValueXYZ[0] | ST MEMS gyroscope (LSM6DSL)                
 vioMotionAccelero | vioValueXYZ[1] | ST MEMS accelerometer (LSM6DSL)                |
 vioAIN0           | vioValue[0]    | ST MEMS humidity and temperature (HTS221)      |
 vioAIN1           | vioValue[1]    | ST MEMS barometer (LPS22HB)                    |
-vioAIN3           | vioValue[2]    | ST MEMS humidity and temperature (HTS221)      |
+vioAIN2           | vioValue[2]    | ST MEMS humidity and temperature (HTS221)      |
 */
 
 #include <stdio.h>
