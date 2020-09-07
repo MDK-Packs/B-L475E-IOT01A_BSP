@@ -32,9 +32,9 @@ vioBUTTON0        | vioSignalIn.0  | GPIO C.13: Button USER                     
 vioLED0           | vioSignalOut.0 | GPIO B.14: LD2 GREEN                           |
 vioMotionGyro     | vioValueXYZ[0] | ST MEMS gyroscope (LSM6DSL)                    |
 vioMotionAccelero | vioValueXYZ[1] | ST MEMS accelerometer (LSM6DSL)                |
-vioAIN0           | vioValue[0]    | ST MEMS humidity and temperature (HTS221)      |
+vioAIN0           | vioValue[0]    | ST MEMS temperature (HTS221)                   |
 vioAIN1           | vioValue[1]    | ST MEMS barometer (LPS22HB)                    |
-vioAIN2           | vioValue[2]    | ST MEMS humidity and temperature (HTS221)      |
+vioAIN2           | vioValue[2]    | ST MEMS humidity (HTS221)                      |
 */
 
 #include <stdio.h>
