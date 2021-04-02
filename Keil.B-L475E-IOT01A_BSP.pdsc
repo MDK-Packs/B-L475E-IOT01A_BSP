@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd" schemaVersion="1.6.0">
+<package xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd" schemaVersion="1.7.1">
   <name>B-L475E-IOT01A_BSP</name>
   <vendor>Keil</vendor>
   <description>STMicroelectronics STM32L4 Series B-L475E-IOT01A Board Support Pack</description>
@@ -7,6 +7,12 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.1-dev4">
+      Platform project update (synchronize with CB_Lab4Layer):
+      - new README.md format
+      - update layers description
+      - compiler optimization -O1
+    </release>
     <release version="1.0.1-dev3">
       Correct README.md in Platform example
     </release>

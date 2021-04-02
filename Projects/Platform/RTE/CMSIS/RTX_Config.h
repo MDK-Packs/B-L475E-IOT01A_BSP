@@ -34,11 +34,7 @@
 #include  RTE_RTX_CONFIG_H
 #endif
 #endif
-
-#ifndef RTE_Compiler_EventRecorder
-#define OS_EVR_INIT                 0
-#endif
-
+ 
 //-------- <<< Use Configuration Wizard in Context Menu >>> --------------------
  
 // <h>System Configuration
@@ -135,7 +131,7 @@
 //   <i> Defines stack size for Idle thread.
 //   <i> Default: 512
 #ifndef OS_IDLE_THREAD_STACK_SIZE
-#define OS_IDLE_THREAD_STACK_SIZE   512
+#define OS_IDLE_THREAD_STACK_SIZE   256
 #endif
  
 //   <o>Idle Thread TrustZone Module Identifier
@@ -204,7 +200,7 @@
 //   <i> May be set to 0 when timers are not used.
 //   <i> Default: 512
 #ifndef OS_TIMER_THREAD_STACK_SIZE
-#define OS_TIMER_THREAD_STACK_SIZE  512
+#define OS_TIMER_THREAD_STACK_SIZE  256
 #endif
  
 //   <o>Timer Thread TrustZone Module Identifier
