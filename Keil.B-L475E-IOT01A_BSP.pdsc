@@ -7,6 +7,12 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.1-dev5">
+      Projects examples update:
+      - assembler option to armclang(Auto Select)
+      - config files to CMSIS 5.8.0
+      - add .dbgconf file
+    </release>
     <release version="1.0.1-dev4">
       Platform project update (synchronize with CB_Lab4Layer):
       - new README.md format
