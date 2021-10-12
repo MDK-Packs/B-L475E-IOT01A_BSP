@@ -7,6 +7,9 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.2-dev0">
+      Update Platform example (blocking stdin_getchar in stdio retarget)
+    </release>
     <release version="1.0.1" date="2021-07-12">
       Drivers:
       - VIO: update physical I/O mapping documentation
