@@ -31,6 +31,6 @@ PMOD connectivity provides unlimited expansion capabilities with a large choice 
 # Technical reference
 
 - [STM32L475VG microcontroller](https://www.st.com/en/microcontrollers-microprocessors/stm32l475vg.html)
-- [B-L475E-IOT01A board](hhttps://www.st.com/en/evaluation-tools/32l496gdiscovery.html)
+- [B-L475E-IOT01A board](https://www.st.com/en/evaluation-tools/32l496gdiscovery.html)
 - [User manual](DM00347848.pdf)
 - [Data brief](b-l475e-iot01a.pdf)
