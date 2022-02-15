@@ -7,6 +7,9 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.2-dev1">
+      Added board description README.md file.
+    </release>
     <release version="1.0.2-dev0">
       Update Platform example (blocking stdin_getchar in stdio retarget)
     </release>
@@ -208,11 +211,13 @@
       <description>STMicroelectronics B-L475E-IOT01A</description>
       <image small="Images/b-l475e-iot01ax-medium.jpg"
              large="Images/b-l475e-iot01ax-large.jpg" public="true"/>
-      <book category="overview"  name="https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html"  title="Web Page" public="true"/>
-      <book category="manual"    name="Documents/b-l475e-iot01a.pdf"                                title="Data brief" public="true"/>
-      <book category="manual"    name="Documents/DM00347848.pdf"                                    title="User Manual" public="true"/>
-      <book category="schematic" name="Documents/b-l475e-iot01a1_sch_revC.pdf"                      title="Schematics revC" public="true"/>
+      <book category="overview"  name="https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html"  title="Web Page"           public="true"/>
+      <book category="manual"    name="Documents/b-l475e-iot01a.pdf"                                title="Data brief"         public="true"/>
+      <book category="manual"    name="Documents/DM00347848.pdf"                                    title="User Manual"        public="true"/>
+      <book category="manual"    name="Documents/um2052.pdf"                                        title="Getting Started"    public="true"/>
+      <book category="schematic" name="Documents/b-l475e-iot01a1_sch_revC.pdf"                      title="Schematics revC"    public="true"/>
       <book category="schematic" name="Documents/b-l475e-iot01a1_sch_revD-01.pdf"                   title="Schematics revD-01" public="true"/>
+      <book category="other"     name="Documents/README.md"                                         title="Guide"              public="true"/>
       <mountedDevice    deviceIndex="0" Dvendor="STMicroelectronics:13" Dname="STM32L475VGTx"/>
       <compatibleDevice deviceIndex="0" Dvendor="STMicroelectronics:13" DsubFamily="STM32L475"/>
       <feature type="XTAL"          n="32768"/>
