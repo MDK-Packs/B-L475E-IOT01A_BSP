@@ -9,8 +9,8 @@ PMOD connectivity provides unlimited expansion capabilities with a large choice 
 
 ## Pins Legend
 
-![](8c14aac5ca741c799d1e2e7e2e067f68f144ade3.png)
-![](cb4aad50e6a4aa38132541ebbd3adedb942935a0.png)
+![](8c14aac5ca741c799d1e2e7e2e067f68f144ade3.jpg)
+![](cb4aad50e6a4aa38132541ebbd3adedb942935a0.jpg)
 ![](fd43fa9f2252a7618225eb0ca15310257c00e280.png)
 
 # Getting started
