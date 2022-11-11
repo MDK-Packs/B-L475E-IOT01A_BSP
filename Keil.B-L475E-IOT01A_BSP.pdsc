@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd" schemaVersion="1.7.1">
+<package xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd" schemaVersion="1.7.7">
   <name>B-L475E-IOT01A_BSP</name>
   <vendor>Keil</vendor>
   <description>STMicroelectronics STM32L4 Series B-L475E-IOT01A Board Support Pack</description>
@@ -7,6 +7,10 @@
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
 
   <releases>
+    <release version="1.0.2-dev2">
+      Drivers:
+      - VIO: Correct variables initialization to avoid compiler warnings
+    </release>
     <release version="1.0.2-dev1">
       Added board description README.md file.
     </release>
@@ -192,7 +196,7 @@
     </bundle>
 
     <!-- VIO component for B-L475E-IOT01A -->
-    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant= "B-L475E-IOT01A" Cversion="1.0.0" Capiversion="0.1.0" condition="B-L475E-IOT01A VIO">
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant= "B-L475E-IOT01A" Cversion="1.0.1" Capiversion="0.1.0" condition="B-L475E-IOT01A VIO">
       <description>Virtual I/O implementation for STM32L562E-DK Board</description>
       <RTE_Components_h>
         #define RTE_VIO_BOARD
