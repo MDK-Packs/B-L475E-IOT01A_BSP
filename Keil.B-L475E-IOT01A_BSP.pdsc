@@ -8,6 +8,11 @@
   <license>LICENSE</license>
 
   <releases>
+    <release version="1.1.0-dev0">
+      Example projects:
+      - Update VIO to API 1.0.0
+      - Synchronize to CMSIS 6.0.0
+    </release>
     <release version="1.0.2-dev3">
       Pack Description:
       - Add LICENSE file
@@ -202,7 +207,7 @@
     </bundle>
 
     <!-- VIO component for B-L475E-IOT01A -->
-    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant= "B-L475E-IOT01A" Cversion="1.0.1" Capiversion="0.1.0" condition="B-L475E-IOT01A VIO">
+    <component Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvariant= "B-L475E-IOT01A" Cversion="2.0.0" Capiversion="1.0.0" condition="B-L475E-IOT01A VIO">
       <description>Virtual I/O implementation for STM32L562E-DK Board</description>
       <RTE_Components_h>
         #define RTE_VIO_BOARD

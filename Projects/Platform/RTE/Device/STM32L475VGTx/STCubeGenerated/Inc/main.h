@@ -71,6 +71,7 @@ extern void app_initialize (void);
 #define ISM43362_DATARDY_Pin GPIO_PIN_1
 #define ISM43362_DATARDY_GPIO_Port GPIOE
 #define ISM43362_DATARDY_EXTI_IRQn EXTI1_IRQn
+
 /* USER CODE BEGIN Private defines */
 extern RNG_HandleTypeDef hrng;
 /* USER CODE END Private defines */
@@ -80,5 +81,3 @@ extern RNG_HandleTypeDef hrng;
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
