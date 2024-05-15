@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package schemaVersion="1.7.28" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.28/schema/PACK.xsd">
+<package schemaVersion="1.7.36" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Open-CMSIS-Pack/Open-CMSIS-Pack-Spec/v1.7.36/schema/PACK.xsd">
   <name>B-L475E-IOT01A_BSP</name>
   <vendor>Keil</vendor>
   <description>STMicroelectronics STM32L4 Series B-L475E-IOT01A Board Support Pack</description>
   <url>https://github.com/MDK-Packs/Pack/raw/master/B-L475E-IOT01A_BSP/</url>
   <repository type="git">https://github.com/MDK-Packs/B-L475E-IOT01A_BSP.git</repository>
   <license>LICENSE</license>
+  <licenseSets>
+    <licenseSet id="all" default="true" gating="true">
+      <license title="BSD License for BSP components"                name="LICENSE" spdx="BSD-3-Clause"/>
+      <license title="Apache 2.0 for MDK examples and CMSIS drivers" name="LICENSE" spdx="Apache-2.0"/>
+    </licenseSet>
+  </licenseSets>
 
   <releases>
     <release version="1.1.0-dev0">
